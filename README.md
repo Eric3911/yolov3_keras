@@ -15,6 +15,7 @@
          2/3行修改：含义为batch参数除以subdivisions等于train脚本里面batchsize（这是一个非常经典的训练测试）
 7、测试修改yolo.py的216/217行执行脚本
 
+![](https://github.com/Eric3911/yolov3-keras-master/blob/master/YOLOV3-2.png)
 
 其他相关教程
 https://blog.csdn.net/maweifei/article/details/81204702
