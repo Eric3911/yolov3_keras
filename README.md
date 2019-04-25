@@ -6,7 +6,7 @@
 
 2、运行test.py脚本生成ImageSets文件下Main里面四个文件
 
-3、修改voc_annotation.py第七行里面内容为自己的类别标签同时在model_data里面修改voc_classes为自己类
+3、修改voc_annotation.py第7行里面内容为自己的类别标签同时在model_data里面修改voc_classes为自己类
 （该过程要保证两个标签的顺序和空格不然导致inference过程没法正常运行）生成2007_train.txt/2007_val.txt/2007_test.txt
 
 4、运行kmeans脚本生成自己数据的预设anchor
