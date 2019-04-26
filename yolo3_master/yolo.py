@@ -213,7 +213,9 @@ def detect_video(yolo, video_path, output_path=""):
 import glob
 
 def deete_img(yolo):
+#*******************************测试图片的路径*****************************************
     path = '/home/ajg/Desktop/Mobilnet/XGD0408_yolo/VOCdevkit/VOC2007/JPEGImages/*.jpg'
+#******************************输出测试结果的路径***************************************
     outdri = '/home/ajg/Desktop/Mobilnet/XGD0408_yolo/VOCdevkit/VOC2007/result/'
     for jpgfile in glob.glob(path):
         img = Image.open(jpgfile)
