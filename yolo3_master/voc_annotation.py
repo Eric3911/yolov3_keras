@@ -3,10 +3,8 @@ from os import getcwd
 
 sets=[('2007', 'train'), ('2007', 'val'), ('2007', 'test')]
 
-
-classes = ["airplane", "ship","storage tank","baseball diamond",
-            "tennis court","basketball court","ground track field",
-            "harbor","bridge","vehicle"]
+#****************************自己训练训练的类别目录******************
+classes = ["airplane", "ship"]
 
 def convert_annotation(year, image_id, list_file):
     in_file = open('VOCdevkit/VOC%s/Annotations/%s.xml'%(year, image_id))
