@@ -29,7 +29,8 @@ def _main():
         model = create_tiny_model(input_shape, anchors, num_classes,
             freeze_body=2, weights_path='./model_data/tiny_yolo_weights.h5')
     else:
-        model = create_model(input_shape, anchors, num_classes,
+        model = create_model(input_shape, anchors, num_classes
+     #**************************************迁移学习需要加载的权重****************************************
             freeze_body=2, weights_path='./logs/trained_weights.h5') # make sure you know what you freeze
 
     logging = TensorBoard(log_dir=log_dir)
