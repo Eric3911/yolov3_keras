@@ -4,7 +4,7 @@
 
 环境要求：
 	
-	pip/conda install tensorflow/tensroflow-gpu==1.10.0 
+	 pip/conda install tensorflow/tensroflow-gpu==1.10.0 
 
 	 pip/conda install keras
 	 
@@ -29,8 +29,10 @@
 	 
 7、测试修改yolo.py的216/217行执行脚本。
 
-8、相关参数解释
+8、相关参数解释:
+
 https://github.com/Eric3911/Dakrnet-YOLOv3/blob/master/%E4%BC%98%E5%8C%96%E8%AE%AD%E7%BB%83%E5%8F%82%E6%95%B0%E8%A7%A3%E9%87%8A
+
 ![](https://github.com/Eric3911/yolov3-keras-master/blob/master/YOLOV3-2.png)
 ![](https://github.com/Eric3911/yolov3-keras-master/blob/master/yolo-v3-structure.jpg)
 ![](https://github.com/Eric3911/yolov3-keras-master/blob/master/figure_1_35000.png)
