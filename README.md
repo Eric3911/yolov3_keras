@@ -2,6 +2,10 @@
 
 # 使用yolov3-keras训练voc风格的自己数据集
 
+环境要求：pip/conda install tensorflow/tensroflow-gpu==1.10.0 
+	 pip/conda install keras
+	 pip/conda install opencv-python
+
 1、将所有的标签数据全部放在Annotations下，图片数据集放在JPEGImages下。
 
 2、运行test.py脚本生成ImageSets文件下Main里面四个txt文件。
