@@ -25,6 +25,7 @@ def train(model, annotation_path, input_shape, anchors, num_classes, log_dir='lo
     logging = TensorBoard(log_dir=log_dir)
     checkpoint = ModelCheckpoint(log_dir + "ep{epoch:03d}-loss{loss:.3f}-val_loss{val_loss:.3f}.h5",
         monitor='val_loss', save_weights_only=True, save_best_only=True, period=1)
+    #*************超参数batch_size************************************************
     batch_size = 16
     val_split = 0.1
     with open(annotation_path) as f:
@@ -38,6 +39,8 @@ def train(model, annotation_path, input_shape, anchors, num_classes, log_dir='lo
             steps_per_epoch=max(1, num_train//batch_size),
             validation_data=data_generator_wrap(lines[num_train:], batch_size, input_shape, anchors, num_classes),
             validation_steps=max(1, num_val//batch_size),
+   #************************全部数据集被训练1000次******************************************
+   #************************如训练集有500个样本，batchsize = 10 ，那么训练完整个样本集：iteration=50，epoch=1**********
             epochs=1000,
             initial_epoch=0)
     model.save_weights(log_dir + 'trained_weights.h5')
