@@ -4,7 +4,7 @@
 
 环境要求：
 	
-	 pip/conda install tensorflow/tensroflow-gpu==1.10.0 
+	 pip/conda install tensorflow/tensroflow-gpu==1.10.0 /1.12.0
 
 	 pip/conda install keras
 	 
@@ -43,6 +43,70 @@ https://github.com/Eric3911/Dakrnet-YOLOv3/blob/master/%E4%BC%98%E5%8C%96%E8%AE%
 
 ![](https://github.com/Eric3911/yolov3-keras-master/blob/master/beihang_airplane_PR.png)
 ![](https://github.com/Eric3911/image/blob/master/QQ%E6%88%AA%E5%9B%BE20190425164616.jpg)
+
+
+1、 In this version
+we found that the error of Val = 0 occurred in the code during our training process, which made it impossible to train.
+
+issue: The error code fragment in the train_Mobilenet.py script is as follows：
+
+with open(train_path) as t_f:
+    	t_lines = t_f.readlines()
+	np.random.seed(10101)
+np.random.shuffle(t_lines)
+	np.random.seed(None)
+	v_lines = t_lines[700:]
+	t_lines = t_lines[:700]
+	num_train = len(t_lines)
+Exchange: We modified the code to be trained as follows：
+
+ with open(train_path) as t_f:
+   	 	t_lines = t_f.readlines()
+     random_stat = 123
+     np.random.seed(random_stat)
+   	 t_lines, v_lines = train_test_split(t_lines, 
+ 				     test_size=0.2,
+				     random_state=random_stat)
+     num_train = len(t_lines)
+2、Practical steps of using transfer learning training model:
+DataSet VOC2007
+A) Put all the label XML of training data in Annotations;
+B) Put all the labeled training pictures in JPEG Images;
+3、creat_list.py
+C) Use the creat_list.py script under VOC2007 to generate four new documents in Main under ImageSets;
+train.txt
+test.txt
+val.txt
+4、voc_annotation.py
+D) Write the class parameters in the sixth line of the voc_annotation.py script under the root directory as their own class parameters in ["aircraft"];
+E) Run the voc_annotation.py script code to generate three files in the root directory: 
+2007_test; 
+2007_train;
+2007_val;
+F) Modify the class label in voc_classes under model_data directory, where the order must always be and must be the same as that in classes, including the space placeholders between some label words.
+5、kmeans.py
+G) Run the kmeans script to generate new yolo_anchors and copy them to the model_data directory to overwrite the previous yolo_anchors;
+6、yolov3.cfg
+H) Modify yolov3.cfg, which is as common as other modifications.
+7、training
+I) Use the train_Mobilnet.py code to modify the path of its relevant parameters. Generally, at 21-24, 37, 68, 74, 75, 86, 92, 93 lines of code, the script model can be trained to execute.
+8、test
+python test.py
+J) After the training, test.py is used to test the model and get the result.
+9、Environment
+Python 3.6.5
+Keras 2.1.5
+tensorflow 1.6.0
+9、Citing
+《YOLOv3-Mobilenet-update》 By Fangyu Zhou & Jungang An
+
+10、Realtek
+https://github.com/Eric3911/yolov3_darknet
+https://github.com/Eric3911/yolov3_keras
+https://github.com/Eric3911/YOLOv3-Mobilenet
+https://github.com/dog-qiuqiu/Yolo-Fastest
+https://github.com/dog-qiuqiu/MobileNet-Yolo
+
 
 其他相关教程
 
